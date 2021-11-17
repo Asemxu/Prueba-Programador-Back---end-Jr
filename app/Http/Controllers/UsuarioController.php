@@ -18,7 +18,7 @@ class UsuarioCONtroller extends Controller
         $usuarios = array();
         $usuarios_db = usuarios::all()->where('Acepto',$request->input('Acepto'));
         foreach ($usuarios_db as $user) {
-            $user = usuarios::find($user->id);
+            $user = usuarios::find($user->usuarios_id);
             $partidas = partidas::where("idJugador", "=", $user->id)->get();
             array_push($usuarios,array(
                 "user"=>$user,
